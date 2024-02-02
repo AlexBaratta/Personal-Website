@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Baratta | Full-Stack Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="../Images/favicon.png" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <section id="home">
+      <div class="content">
+        <h1>HEY, I'M ALEX BARATTA</h1>
+        <p><span id="dynamic-text"></span></p>
+        <div class="actions">
+          <a href="#projects">See My Projects</a>
+          <a href="#about">More About Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-img">
+        <img src="/Images/mepic.JPG" alt="A picture of Alex" />
+      </div>
+      <div class="about-content">
+        <h2>About Me</h2>
+        <p>
+          Hi, I'm Alex. I'm a Junior Computer Science Major at Baylor University
+          and I have a passion in UI and full stack development. Born in
+          England, and raised in Sweden, with an English mother and an Italian
+          father, my diverse background offers a unique perspective in my work.
+          While Baylor has sharpened my technical skills, my international
+          upbringing brings a distinct touch to my projects. For any
+          collaborations, opportunities, or discussion related to tech and
+          design, feel free to reach out!
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-item">
+            <a
+              href="https://github.com/WesterfieldCRL/CodersOfTheCaribbean"
+              target="_blank"
+            >
+              <div class="project-description">
+                <p>
+                  "CodersOfTheCaribbean" is a Java-based cruise booking system
+                  using JDBC with an SQL database, streamlining the reservation
+                  process for guests and agents with features like room
+                  selection, reservation management, and billing, across
+                  multiple cruise options.
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <div class="project-description">
+              <p>This is the description for Project 2.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="project-description">
+              <p>This is the description for Project 3.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-content">
+
+
+        <a href="/Images/Alex-Baratta-Resume.pdf" target="_blank" class="contact-link"
+          ><i class="fas fa-file-alt"></i> Resume</a
+        >
+        <a
+          href="https://www.linkedin.com/in/alex-baratta"
+          target="_blank"
+          class="contact-link"
+          ><i class="fab fa-linkedin"></i> LinkedIn</a
+        >
+        <a
+          href="https://github.com/alexbaratta"
+          target="_blank"
+          class="contact-link"
+          ><i class="fab fa-github-square"></i> GitHub</a
+        >
+
+      </div>
+    </section>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        let projectListItems = document.querySelectorAll(".project-list li");
+        let projectDescriptions = document.querySelectorAll(
+          ".project-description"
+        );
+
+        projectListItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            projectListItems.forEach((i) => i.classList.remove("active"));
+
+            this.classList.add("active");
+
+            projectDescriptions.forEach((desc) =>
+              desc.classList.remove("active")
+            );
+
+            let projectToShow = document.querySelector(
+              `.project-description[data-project="${this.dataset.project}"]`
+            );
+            projectToShow.classList.add("active");
+          });
+        });
+      });
+      document.addEventListener("mousemove", function (e) {
+        const follower = document.querySelector(".follower");
+        const bgImage = document.querySelector(".bg-image");
+
+        follower.style.left = e.pageX + "px";
+        follower.style.top = e.pageY + "px";
+
+        const moveX = (e.pageX * -1) / 20;
+        const moveY = (e.pageY * -1) / 20;
+
+        bgImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+
+      const titles = [
+        "Full-Stack Developer",
+        "Software Engineer",
+        "Web Designer",
+        "UI/UX Designer"
+      ];
+      const textElement = document.getElementById("dynamic-text");
+      let currentTitleIndex = 0;
+      let charIndex = 0;
+      let typingDelay = 100;
+      let erasingDelay = 100;
+      let newTextDelay = 1000; 
+
+      function type() {
+        if (charIndex < titles[currentTitleIndex].length) {
+          textElement.textContent +=
+            titles[currentTitleIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingDelay);
+        } else {
+          setTimeout(erase, newTextDelay);
+        }
+      }
+
+      function erase() {
+        if (charIndex > 0) {
+          textElement.textContent = titles[currentTitleIndex].substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          setTimeout(erase, erasingDelay);
+        } else {
+          currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+          setTimeout(type, typingDelay + 1100);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (titles.length) setTimeout(type, newTextDelay + 250);
+      });
+    </script>
+  </body>
+</html>
