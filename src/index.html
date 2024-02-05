@@ -55,28 +55,21 @@
         <div class="carousel">
           <div class="carousel-item">
             <a
-              href="https://github.com/WesterfieldCRL/CodersOfTheCaribbean"
-              target="_blank"
+              href="codersofthecarribean.html"
             >
               <div class="project-description">
-                <p>
-                  "CodersOfTheCaribbean" is a Java-based cruise booking system
-                  using JDBC with an SQL database, streamlining the reservation
-                  process for guests and agents with features like room
-                  selection, reservation management, and billing, across
-                  multiple cruise options.
-                </p>
+                <p>Coders of the Caribbean</p>
               </div>
             </a>
           </div>
           <div class="carousel-item">
             <div class="project-description">
-              <p>This is the description for Project 2.</p>
+              <p>Pomodoro Timer</p>
             </div>
           </div>
           <div class="carousel-item">
             <div class="project-description">
-              <p>This is the description for Project 3.</p>
+              <p>Application Tracker</p>
             </div>
           </div>
         </div>
@@ -88,111 +81,9 @@
       <div class="contact-content">
 
 
-        <a href="/Images/Alex-Baratta-Resume.pdf" target="_blank" class="contact-link"
-          ><i class="fas fa-file-alt"></i> Resume</a
-        >
-        <a
-          href="https://www.linkedin.com/in/alex-baratta"
-          target="_blank"
-          class="contact-link"
-          ><i class="fab fa-linkedin"></i> LinkedIn</a
-        >
-        <a
-          href="https://github.com/alexbaratta"
-          target="_blank"
-          class="contact-link"
-          ><i class="fab fa-github-square"></i> GitHub</a
-        >
-
       </div>
     </section>
 
-    <script>
-      window.addEventListener("scroll", function () {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-      document.addEventListener("DOMContentLoaded", function () {
-        let projectListItems = document.querySelectorAll(".project-list li");
-        let projectDescriptions = document.querySelectorAll(
-          ".project-description"
-        );
-
-        projectListItems.forEach((item) => {
-          item.addEventListener("click", function () {
-            projectListItems.forEach((i) => i.classList.remove("active"));
-
-            this.classList.add("active");
-
-            projectDescriptions.forEach((desc) =>
-              desc.classList.remove("active")
-            );
-
-            let projectToShow = document.querySelector(
-              `.project-description[data-project="${this.dataset.project}"]`
-            );
-            projectToShow.classList.add("active");
-          });
-        });
-      });
-      document.addEventListener("mousemove", function (e) {
-        const follower = document.querySelector(".follower");
-        const bgImage = document.querySelector(".bg-image");
-
-        follower.style.left = e.pageX + "px";
-        follower.style.top = e.pageY + "px";
-
-        const moveX = (e.pageX * -1) / 20;
-        const moveY = (e.pageY * -1) / 20;
-
-        bgImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-      });
-
-      const titles = [
-        "Full-Stack Developer",
-        "Software Engineer",
-        "Web Designer",
-        "UI/UX Designer"
-      ];
-      const textElement = document.getElementById("dynamic-text");
-      let currentTitleIndex = 0;
-      let charIndex = 0;
-      let typingDelay = 100;
-      let erasingDelay = 100;
-      let newTextDelay = 1000; 
-
-      function type() {
-        if (charIndex < titles[currentTitleIndex].length) {
-          textElement.textContent +=
-            titles[currentTitleIndex].charAt(charIndex);
-          charIndex++;
-          setTimeout(type, typingDelay);
-        } else {
-          setTimeout(erase, newTextDelay);
-        }
-      }
-
-      function erase() {
-        if (charIndex > 0) {
-          textElement.textContent = titles[currentTitleIndex].substring(
-            0,
-            charIndex - 1
-          );
-          charIndex--;
-          setTimeout(erase, erasingDelay);
-        } else {
-          currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-          setTimeout(type, typingDelay + 1100);
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        if (titles.length) setTimeout(type, newTextDelay + 250);
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

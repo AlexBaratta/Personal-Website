@@ -195,7 +195,6 @@ section {
   order: 2;
   flex: 1;
   color: #ffffff;
-  font-family: "Arial", sans-serif;
   padding-left: 20px;
   text-align: left;
 }
@@ -335,7 +334,7 @@ section::before {
   opacity: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center ;
   height: 100%;
   background: linear-gradient(
     to top,
@@ -343,7 +342,7 @@ section::before {
     rgba(2, 2, 46, 0.63) 50%, 
     rgba(0, 0, 0, 0.14)
   );  transform: translateY(100%);
-  transition: opacity 0.5s ease-in-out, transform 0.3s 0.1s;
+  transition: opacity 0.5s ease-in-out, transform 0.1s 0.1s;
   visibility: hidden;
 }
 
@@ -369,7 +368,6 @@ section::before {
   background-color: #060409;
   padding: 50px;
   color: #ffffff;
-  font-family: "Arial", sans-serif;
   text-align: center;
 }
 
@@ -400,4 +398,71 @@ section::before {
 
 .contact-link:hover {
   background-color: #7e43af;
+}
+
+.main-content {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  min-height: 100vh; 
+  padding: 50px;
+  color: #fff; 
+}
+
+.image-container {
+  flex: 0 0 45%;
+  padding: 1px; 
+  border-radius: 20px; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.image-container img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 20px; 
+  display: block; 
+}
+
+.text-container {
+  flex: 0 0 45%; 
+  padding: 20px; 
+  background: #420075; 
+  border-radius: 20px; 
+  margin-left: 5%; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  z-index: 1; 
+}
+
+.text-container h1, .text-container p, .text-container a {
+  margin-bottom: 20px; 
+}
+
+.text-container a {
+  padding: 10px 25px;
+  background-color: #fff; 
+  color: #420075; 
+  text-decoration: none; 
+  border-radius: 5px; 
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.text-container a:hover {
+  background-color: #333; 
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .image-container, .text-container {
+    flex-basis: 100%;
+    margin-left: 0; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+  }
+
+  .text-container {
+    margin-left: 0;
+  }
 }
