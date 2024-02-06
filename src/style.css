@@ -6,8 +6,14 @@
   scroll-behavior: smooth;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 body {
-  background-color: #6c12ad;
+  animation: fadeIn 1s ease-in-out forwards;
+  background-color: #2f0743;
   color: #eee;
   margin: 0;
   padding: 0;
@@ -206,7 +212,7 @@ section {
   position: relative;
   overflow: hidden;
 
-  border: 2px solid #6c12ad;
+  border: 2px solid #2f0743;
   border-radius: 50px;
   padding: 10px 40px;
 
@@ -407,6 +413,10 @@ section::before {
   min-height: 100vh; 
   padding: 50px;
   color: #fff; 
+  background-image: url("../Images/transparentGrid.webp");
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .image-container {
@@ -414,6 +424,8 @@ section::before {
   padding: 1px; 
   border-radius: 20px; 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  background: #fff;  
+
 }
 
 .image-container img {
@@ -426,12 +438,39 @@ section::before {
 .text-container {
   flex: 0 0 45%; 
   padding: 20px; 
-  background: #420075; 
+  background: linear-gradient(145deg, #2e1441, #330867); 
   border-radius: 20px; 
   margin-left: 5%; 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
   z-index: 1; 
+  line-height: 1.6;
+  color: #eaeaea; 
 }
+
+
+.text-container h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-container p,
+.text-container ul,
+.text-container a {
+  margin-bottom: 1rem; 
+}
+
+.text-container ul li {
+  margin-bottom: 0.25rem; 
+}
+
+.text-container ul {
+  padding-left: 20px; 
+}
+
+.text-container li {
+  margin-bottom: 10px; 
+}
+
 
 .text-container h1, .text-container p, .text-container a {
   margin-bottom: 20px; 
@@ -464,5 +503,52 @@ section::before {
 
   .text-container {
     margin-left: 0;
+    background: linear-gradient(145deg, #2e1441, #330867); 
   }
+}
+
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(145deg, #6c12ad, #330867); 
+}
+
+.container-404 {
+  max-width: 600px;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.8); 
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.container-404 h1 {
+  font-size: 8rem;
+  color: #e0aaff;
+  margin-bottom: 1rem;
+}
+
+.container-404 p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.container-404 a {
+  display: inline-block;
+  background-color: #6c12ad;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.container-404 a:hover {
+  background-color: #7e43af;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(126, 67, 175, 0.6); 
 }
