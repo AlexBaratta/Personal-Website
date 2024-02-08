@@ -23,8 +23,8 @@
         <h1>HEY, I'M ALEX BARATTA</h1>
         <p><span id="dynamic-text"></span></p>
         <div class="actions">
-          <a href="#projects">See My Projects</a>
           <a href="#about">More About Me</a>
+          <a href="#projects">See My Projects</a>
         </div>
       </div>
     </section>
@@ -80,9 +80,47 @@
 
     <section id="contact">
       <h2>Contact Me</h2>
-      <div class="contact-content"></div>
+      <div class="social-links">
+        <a href="../Images/Alex-Baratta-Resume.pdf" target="_blank" class="contact-link">
+          <span class="icon resume-icon"></span>
+          My Resume
+        </a>
+        <a href="https://github.com/AlexBaratta" target="_blank" class="contact-link">
+          <span class="icon github-icon"></span>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/alex-baratta/" target="_blank" class="contact-link">
+          <span class="icon linkedin-icon"></span>
+          LinkedIn
+        </a>
+      </div>
+      
+      
+      <h3>Get In Touch</h3>
+      
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <div class="g-recaptcha" data-sitekey="6LdjB2opAAAAAGLeVxTbf8no5SXa_n1YKPHjoCGp"></div>
+        <button type="submit" class="contact-link" id="submit-button">Send Message</button>
+      </form>
     </section>
-
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        alert("grecaptcha is ready!");
+      };
+    </script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+    <script src="contact.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</script>
   </body>
 </html>
