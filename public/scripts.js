@@ -100,3 +100,21 @@ window.addEventListener("scroll", function () {
     if (titles.length) setTimeout(type, newTextDelay + 250);
   });
   
+  document.getElementById('submit-button').addEventListener('click', function() {
+    var captchaContainer = document.getElementById('captcha-container');
+    captchaContainer.style.display = 'block';
+  
+    if (captchaContainer.innerHTML === '') {
+      grecaptcha.render('captcha-container', {
+        'sitekey' : '6LdjB2opAAAAAGLeVxTbf8no5SXa_n1YKPHjoCGp'
+      });
+    }
+  });
+  
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    if (grecaptcha.getResponse() === "") {
+      event.preventDefault();
+      alert('Please complete the CAPTCHA.');
+    }
+  });
+  

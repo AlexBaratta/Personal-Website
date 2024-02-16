@@ -28,11 +28,13 @@
             alert("Thank you for contacting me! I will get back to you soon.");
 
             document.getElementById("contact-form").reset();
+            grecaptcha.reset();
           },
           function (error) {
             console.error("Email sending failed:", error);
 
             alert("Oops! Something went wrong. Please try again later.");
+            grecaptcha.reset();
           }
         );
     });
